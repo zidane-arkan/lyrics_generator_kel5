@@ -8,7 +8,7 @@ st.set_page_config(page_title="Lyrics Generator", page_icon="./assets/person.png
 # Load Model
 model_load = tf.keras.models.load_model("./model/Lyrics_Generator_v2.h5")
 
-title = st.title("Kel 5 - Lyrics Generator Using BERT")
+title = st.title("Kel 5 - Lyrics Generator")
 
 st.image("./assets/person.png", width=400)
 
