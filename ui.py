@@ -8,7 +8,7 @@ st.set_page_config(page_title="Lyrics Generator", page_icon="./assets/person.png
 # Load Model
 model_load = tf.keras.models.load_model("./model/Lyrics_Generator_v2.h5")
 
-title = st.title("Kel 5 - Lyrics Generator")
+title = st.title("Lyrics Generator")
 
 st.image("./assets/person.png", width=400)
 
@@ -16,14 +16,19 @@ st.write('Label lirik diambil dalam segmen 40 kata, menjadi dasar untuk mencipta
 
 # Create a text input 
 st.subheader('Masukkan Teks (40 Kata):')
-user_input = st.text_input('Masukkan Lirik awal...', value="bersama ku mengerti kau dengan dia hari ") 
+user_input = st.text_input('Masukkan Lirik awal...', value="bermain bersama menuju ke arah terlampau") 
 
 generate_button = False
 ftext = ""
 check_size = len(user_input)
+
+num_spaces = 40 - check_size
+user_input += " " * num_spaces
+
 if len(user_input) == 40:
     generate_button = st.button("Generate Lyrics")
 else:
+    # Append spaces to the input text to make it 40 characters long
     ftext = 'Masukkan harus terdiri dari tepat 40 karakter. Jumlah Karakter anda : {}'.format(check_size)
     st.warning(ftext)
 
